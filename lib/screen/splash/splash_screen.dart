@@ -11,7 +11,8 @@ class SplashScreen extends StatefulWidget {
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
-
+//https://www.figma.com/design/icRucuXWmSV7tngOSNiStJ/Samrat--Men-s-Salon-App---Community-?node-id=30-4282&t=ysurdabiwUFZVrKG-0
+//https://www.figma.com/design/FmNuwSaCtTnoNblvMTsGm9/-FREE--Beautilly---Salon---wellness-app-UI-kit--Community-?node-id=84-571&t=LVLTJ0DUFMmxz23j-0
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
