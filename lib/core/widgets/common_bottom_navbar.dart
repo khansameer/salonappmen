@@ -20,7 +20,7 @@ class CommonBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colorMenu,
         boxShadow: [
           BoxShadow(
             color: colorBg.withValues(alpha: 0.2),
@@ -31,7 +31,7 @@ class CommonBottomNavBar extends StatelessWidget {
         ],
       ),
       child: BottomNavigationBar(
-        backgroundColor: Colors.white,
+        backgroundColor: colorMenu,
         showSelectedLabels: true,
         showUnselectedLabels: true,
 

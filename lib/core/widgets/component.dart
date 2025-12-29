@@ -22,18 +22,23 @@ AppBar commonAppBar({
   return AppBar(
     surfaceTintColor: Colors.transparent,
     iconTheme: iconTheme,
-    toolbarHeight: 88,
-
+    bottom: PreferredSize(
+      preferredSize: const Size.fromHeight(1),
+      child: Container(
+        height: 0.5,
+        color: Colors.grey.withValues(alpha: 0.3), // line color
+      ),
+    ),
     title: Text(
       title.toUpperCase(),
       style: commonTextStyle(
         fontSize: 18,
-        fontWeight: FontWeight.w600,
-        color: Colors.white,
+        fontWeight: FontWeight.w700,
+        color: colorText,
       ),
     ),
-    centerTitle: centerTitle,
-    backgroundColor: backgroundColor ??colorWhite,
+    centerTitle: true,
+    backgroundColor: backgroundColor ?? colorWhite,
     // important
     elevation: 0,
     actions: actions,
@@ -45,16 +50,6 @@ AppBar commonAppBar({
           },
           icon: const Icon(Icons.arrow_back_ios_new_sharp, color: Colors.white),
         ),
-    flexibleSpace: SafeArea(
-      child: Container(
-      
-        decoration: BoxDecoration(
-          color: backgroundColor ?? colorWhite,
-          borderRadius: BorderRadius.circular(0),
-        ),
-        child: flexibleSpace,
-      ),
-    ),
   );
 }
 
@@ -153,7 +148,7 @@ TextStyle commonTextStyle({
   TextDecoration? decoration,
 }) {
   return TextStyle(
-    color: color ??colorText,
+    color: color ?? colorText,
     fontSize: fontSize ?? 14,
     wordSpacing: wordSpacing,
     decoration: decoration,
@@ -325,7 +320,7 @@ OutlineInputBorder commonTextFiledBorder({
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(borderRadius ?? 12),
     borderSide: BorderSide(
-      color: borderColor ??colorTextLight.withValues(alpha: 0.5),
+      color: borderColor ?? colorTextLight.withValues(alpha: 0.5),
     ),
   );
 }
@@ -616,23 +611,26 @@ Widget commonPrefixIcon({
 class BottomNavItems {
   static const List<BottomNavigationBarItem> items = [
     BottomNavigationBarItem(
-      icon: ImageIcon(AssetImage(icIntro1)),
-      label: myKAP,
+      icon: ImageIcon(AssetImage(icMenuHome)),
+      label: "Home",
     ),
-    BottomNavigationBarItem(
+
+    /* BottomNavigationBarItem(
       icon: ImageIcon(AssetImage(icIntro1)),
       label: calendar,
+    ),*/
+    BottomNavigationBarItem(
+      icon: ImageIcon(AssetImage(icMenuOrder)),
+      label: "Book",
     ),
 
-    BottomNavigationBarItem(icon: ImageIcon(AssetImage(icIntro1)), label: home),
-
     BottomNavigationBarItem(
-      icon: ImageIcon(AssetImage(icIntro1)),
-      label: attendance,
+      icon: ImageIcon(AssetImage(icMenuChat)),
+      label: "Chat",
     ),
     BottomNavigationBarItem(
-      icon: ImageIcon(AssetImage(icIntro1)),
-      label: setting,
+      icon: ImageIcon(AssetImage(icMenuProfile)),
+      label: "Profile",
     ),
   ];
 }
@@ -792,15 +790,20 @@ void showCommonBottomSheet({
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-
-            SizedBox(height: 10,),
+            SizedBox(height: 10),
             Row(
               children: [
-                Expanded(child: commonText(text: title??'',fontSize: 18,fontWeight: .bold,)),
+                Expanded(
+                  child: commonText(
+                    text: title ?? '',
+                    fontSize: 18,
+                    fontWeight: .bold,
+                  ),
+                ),
                 Align(
                   alignment: .topRight,
                   child: commonInkWell(
-                    onTap: (){
+                    onTap: () {
                       Navigator.pop(context);
                     },
                     child: Container(
@@ -808,15 +811,15 @@ void showCommonBottomSheet({
                       width: 35,
                       height: 35,
                       decoration: commonBoxDecoration(
-
-                      color: Colors.black,
-                      shape: BoxShape.circle
+                        color: Colors.black,
+                        shape: BoxShape.circle,
                       ),
-                      child: Center(child: Icon(Icons.close,color: Colors.white,size: 18,)),
+                      child: Center(
+                        child: Icon(Icons.close, color: Colors.white, size: 18),
+                      ),
                     ),
                   ),
                 ),
-
               ],
             ),
             content,
@@ -846,24 +849,28 @@ int getMonthNumber(String monthName) {
   return monthMap[monthName] ?? 0; // 0 if not found
 }
 
-Widget authHeading({String ?title,String ?subTitle}){
+Widget authHeading({String? title, String? subTitle}) {
   return Column(
     mainAxisAlignment: .start,
     crossAxisAlignment: .start,
     spacing: 8,
     children: [
-  //    commonText(text: title??"Welcome back,",fontSize: 25,fontWeight: .bold,),
-      commonText(text: subTitle??"Glad to meet you again!, please login to use the app.",fontSize: 14,color: colorTextLight)
-
+      //    commonText(text: title??"Welcome back,",fontSize: 25,fontWeight: .bold,),
+      commonText(
+        text:
+            subTitle ?? "Glad to meet you again!, please login to use the app.",
+        fontSize: 14,
+        color: colorTextLight,
+      ),
     ],
   );
 }
 
-Widget appBarView(){
+Widget appBarView() {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 18.0),
+    padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 25),
     child: Row(
-      spacing: 12 ,
+      spacing: 12,
       children: [
         commonAssetImage(icMen, width: 56, height: 56),
         Expanded(
@@ -891,7 +898,6 @@ Widget appBarView(){
               fontWeight: .bold,
               color: colorTextLight,
             ),
-
           ],
         ),
       ],

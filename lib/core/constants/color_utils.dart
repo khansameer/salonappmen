@@ -13,3 +13,6 @@ const Color colorBannerButton= Color.fromRGBO(114, 205, 224, 1);
 const Color colorBannerText= Color.fromRGBO(13, 88, 104, 1);
 const Color colorBannerCircle= Color.fromRGBO(255, 232, 117, 1);
 const Color colorTextMarron= Color.fromRGBO(186, 89, 0, 1);
+const Color colorTextTopList= Color.fromRGBO(56, 52, 65, 1);
+const Color colorMenu= Color.fromRGBO(236, 252, 255, 1);
+const Color colorRating= Color.fromRGBO(252, 179, 59, 1);

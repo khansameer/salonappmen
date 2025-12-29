@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-     Navigator.pushReplacementNamed(context, RouteName.introScreen);
+     Navigator.pushReplacementNamed(context, RouteName.dashboardScreen);
     });
   }
   @override
