@@ -16,3 +16,6 @@ const Color colorTextMarron= Color.fromRGBO(186, 89, 0, 1);
 const Color colorTextTopList= Color.fromRGBO(56, 52, 65, 1);
 const Color colorMenu= Color.fromRGBO(236, 252, 255, 1);
 const Color colorRating= Color.fromRGBO(252, 179, 59, 1);
+const Color colorChips = Color.fromRGBO(203, 246, 255, 1);
+const Color colorTextChips = Color.fromRGBO(55, 62, 65, 1);
+const Color colorChipBorderColor = Color.fromRGBO(17, 99, 116, 1);

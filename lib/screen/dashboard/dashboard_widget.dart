@@ -137,7 +137,7 @@ Widget hairTypeView() {
                           width: 64,
                           height: 64,
                           decoration: commonBoxDecoration(
-                            color: colorBannerButton.withOpacity(0.5),
+                            color: colorBannerButton.withValues(alpha: 0.5),
                             shape: BoxShape.circle,
                           ),
                           child: Center(
@@ -167,7 +167,7 @@ Widget hairTypeView() {
   );
 }
 
-Widget specialistsView() {
+Widget specialistsView({bool isShowToday=false}) {
   return Consumer<DashboardProvider>(
     builder: (context, provider, _) {
       return Padding(
@@ -175,10 +175,22 @@ Widget specialistsView() {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            commonText(
-              text: "Your Favorite Specialists",
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
+            Row(
+              children: [
+                Expanded(
+                  child: commonText(
+                    text: "Your Favorite Specialists",
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                isShowToday? commonText(
+                  text: "Today",
+                  fontSize: 12,
+                  color: colorTextLight,
+                  fontWeight: FontWeight.w600,
+                ):SizedBox.shrink(),
+              ],
             ),
             const SizedBox(height: 8),
             ListView.builder(
@@ -197,7 +209,7 @@ Widget specialistsView() {
                         width: 40,
                         height: 40,
                         decoration: commonBoxDecoration(
-                          color: colorBannerButton.withOpacity(0.5),
+                          color: colorBannerButton.withValues( alpha: 0.5),
                           shape: BoxShape.circle,
                         ),
                         child: commonAssetImage(data['icon']),
@@ -226,8 +238,8 @@ Widget specialistsView() {
                         ),
                         decoration: commonBoxDecoration(
                           color: data['status']
-                              ? Colors.green.withOpacity(0.2)
-                              : Colors.red.withOpacity(0.2),
+                              ? Colors.green.withValues(alpha: 0.2)
+                              : Colors.red.withValues(alpha: 0.2),
                         ),
                         child: commonText(
                           text: data['status'] ? "Available" : "Not Available",
@@ -338,7 +350,7 @@ Widget customerReviewView() {
                         height: 40,
                         decoration: commonBoxDecoration(
                           shape: BoxShape.circle,
-                          color: colorBannerButton.withOpacity(0.5),
+                          color: colorBannerButton.withValues( alpha: 0.5),
                         ),
                         child: commonAssetImage(data['icon']),
                       ),

@@ -4,6 +4,7 @@ import 'package:salonman/core/constants/color_utils.dart';
 import 'package:salonman/core/constants/image_utils.dart';
 import 'package:salonman/core/widgets/component.dart';
 import 'package:salonman/provider/dashboard_provider.dart';
+import 'package:salonman/screen/dashboard/page/book_page.dart';
 import 'package:salonman/screen/dashboard/page/home_page.dart';
 
 import '../../core/widgets/common_bottom_navbar.dart';
@@ -21,7 +22,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       case 0:
         return HomePage();
       case 1:
-        return Container();
+        return BookPage();
       case 2:
         return Container();
       case 3:
@@ -76,7 +77,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           body: Stack(
             children: [
               getPage(provider.currentIndex),
-              Align(
+              provider.currentIndex==1   ||  provider.currentIndex==2 || provider.currentIndex==3?SizedBox.shrink():   Align(
                 alignment: .bottomCenter,
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
