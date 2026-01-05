@@ -15,6 +15,7 @@ AppBar commonAppBar({
   final Widget? leading,
   final Widget? flexibleSpace,
   final Color? backgroundColor,
+  final Color? colorIcon,
   required final BuildContext context,
   final IconThemeData? iconTheme,
   final List<Color>? gradientColors,
@@ -48,7 +49,7 @@ AppBar commonAppBar({
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon: const Icon(Icons.arrow_back_ios_new_sharp, color: Colors.white),
+          icon:  Icon(Icons.arrow_back_ios_new_sharp, color:colorIcon?? Colors.white),
         ),
   );
 }

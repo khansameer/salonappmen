@@ -5,7 +5,9 @@ import 'package:salonman/core/constants/image_utils.dart';
 import 'package:salonman/core/widgets/component.dart';
 import 'package:salonman/provider/dashboard_provider.dart';
 import 'package:salonman/screen/dashboard/page/book_page.dart';
+import 'package:salonman/screen/dashboard/page/chat_page.dart';
 import 'package:salonman/screen/dashboard/page/home_page.dart';
+import 'package:salonman/screen/dashboard/page/profile_page.dart';
 
 import '../../core/widgets/common_bottom_navbar.dart';
 
@@ -24,9 +26,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
       case 1:
         return BookPage();
       case 2:
-        return Container();
+        return ChatPage();
       case 3:
-        return Container();
+        return ProfilePage();
       case 4:
         return Container();
       default:
